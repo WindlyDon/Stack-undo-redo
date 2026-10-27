@@ -1,0 +1,113 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive text editor demonstrating stack data structures through undo and redo operations.">
+    <title>Stack-Based Undo & Redo Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Stack-Based Undo & Redo Editor</h1>
+            <p>
+                Explore how the Last In, First Out (LIFO) principle
+                powers undo and redo operations.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>Text Editor</h2>
+
+            <p class="help-text">
+                Type your text below. Each change is recorded so you can
+                undo or redo your work.
+            </p>
+
+            <label for="editor">Your text</label>
+
+            <textarea
+                id="editor"
+                placeholder="Start typing your text here..."
+                rows="8"
+                spellcheck="true"
+            ></textarea>
+
+            <div class="buttons">
+                <button id="undoBtn" type="button" disabled>
+                    ↶ Undo
+                </button>
+
+                <button id="redoBtn" type="button" disabled>
+                    ↷ Redo
+                </button>
+
+                <button id="clearBtn" type="button" class="danger">
+                    Clear
+                </button>
+            </div>
+
+            <p id="status" class="status" role="status" aria-live="polite">
+                Ready. Start typing to create your first history entry.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Stack Visualization</h2>
+
+            <div class="stack-grid">
+
+                <div class="stack-panel">
+                    <h3>Undo Stack</h3>
+                    <p class="help-text">
+                        Previous states. The top entry is the next one to undo.
+                    </p>
+                    <div id="undoStack" class="stack-items">
+                        <p class="empty">No previous states yet.</p>
+                    </div>
+                </div>
+
+                <div class="stack-panel">
+                    <h3>Redo Stack</h3>
+                    <p class="help-text">
+                        Reversed states. The top entry is the next one to redo.
+                    </p>
+                    <div id="redoStack" class="stack-items">
+                        <p class="empty">No redo states yet.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>How the Stack Works</h2>
+
+            <ol>
+                <li><strong>Push:</strong> Save a previous text state.</li>
+                <li><strong>Pop:</strong> Remove the most recent saved state.</li>
+                <li><strong>Undo:</strong> Move backward to a previous state.</li>
+                <li><strong>Redo:</strong> Restore a state that was undone.</li>
+            </ol>
+
+            <p>
+                <strong>LIFO:</strong> Last In, First Out. The latest saved
+                state is the first state retrieved.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Stack Data Structure Project | Built with HTML, CSS and JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
